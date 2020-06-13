@@ -17,6 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import edu.iis.mto.blog.domain.model.AccountStatus;
 import edu.iis.mto.blog.domain.model.User;
+import edu.iis.mto.blog.domain.model.UserBuilder;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -42,26 +43,31 @@ public class UserRepositoryTest {
 
     private static final String invalidEmail = "invalidEmail@invalidEmail.com";
 
+    private UserBuilder userBuilder;
+
     @Before
     public void setUp() {
-        userJanWithDomainAccount = new User();
-        userJanWithDomainAccount.setFirstName("Jan");
-        userJanWithDomainAccount.setEmail("john@domain.com");
-        userJanWithDomainAccount.setAccountStatus(AccountStatus.NEW);
-        userJanuszWithGmailAccount = new User();
-        userJanuszWithGmailAccount.setFirstName("Janusz");
-        userJanuszWithGmailAccount.setEmail("januszex@gmail.com");
-        userJanuszWithGmailAccount.setAccountStatus(AccountStatus.NEW);
-        userPiotrKowalskiWithDomainAccount = new User();
-        userPiotrKowalskiWithDomainAccount.setFirstName("Piotr");
-        userPiotrKowalskiWithDomainAccount.setLastName("Kowalski");
-        userPiotrKowalskiWithDomainAccount.setEmail("piter@domain.com");
-        userPiotrKowalskiWithDomainAccount.setAccountStatus(AccountStatus.NEW);
-        userMiloszKowalskiWithGmailAccount = new User();
-        userMiloszKowalskiWithGmailAccount.setFirstName("Milosz");
-        userMiloszKowalskiWithGmailAccount.setLastName("Kowalski");
-        userMiloszKowalskiWithGmailAccount.setEmail("mkowalski@gmail.com");
-        userMiloszKowalskiWithGmailAccount.setAccountStatus(AccountStatus.NEW);
+        userBuilder = new UserBuilder();
+        userJanWithDomainAccount = userBuilder.withFirstName("Jan")
+                                              .withLastName("")
+                                              .withEmail("john@domain.com")
+                                              .withAccountStatus(AccountStatus.NEW)
+                                              .build();
+        userJanuszWithGmailAccount = userBuilder.withFirstName("Janusz")
+                                                .withLastName("")
+                                                .withEmail("januszex@gmail.com")
+                                                .withAccountStatus(AccountStatus.NEW)
+                                                .build();
+        userPiotrKowalskiWithDomainAccount = userBuilder.withFirstName("Piotr")
+                                                        .withLastName("Kowalski")
+                                                        .withEmail("piter@domain.com")
+                                                        .withAccountStatus(AccountStatus.NEW)
+                                                        .build();
+        userMiloszKowalskiWithGmailAccount = userBuilder.withFirstName("Milosz")
+                                                        .withLastName("Kowalski")
+                                                        .withEmail("mkowalski@gmail.com")
+                                                        .withAccountStatus(AccountStatus.NEW)
+                                                        .build();
     }
 
     @Test

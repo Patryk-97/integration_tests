@@ -4,18 +4,28 @@ import java.util.List;
 
 public class BlogPostBuilder {
 
-    private User user;
+    private Long id = null;
 
-    private String entry;
+    private User user = null;
 
-    private List<LikePost> likes;
+    private String entry = "";
+
+    private List<LikePost> likes = null;
 
     public BlogPost build() {
         BlogPost blogPost = new BlogPost();
+        if (id != null) {
+            blogPost.setId(id);
+        }
         blogPost.setUser(user);
         blogPost.setEntry(entry);
         blogPost.setLikes(likes);
         return blogPost;
+    }
+
+    public BlogPostBuilder withId(Long id) {
+        this.id = id;
+        return this;
     }
 
     public BlogPostBuilder withUser(User user) {

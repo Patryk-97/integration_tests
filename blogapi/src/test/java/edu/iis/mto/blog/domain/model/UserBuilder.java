@@ -2,6 +2,8 @@ package edu.iis.mto.blog.domain.model;
 
 public class UserBuilder {
 
+    private Long id = null;
+
     private String firstName = "";
 
     private String lastName = "";
@@ -12,11 +14,19 @@ public class UserBuilder {
 
     public User build() {
         User user = new User();
+        if (id != null) {
+            user.setId(id);
+        }
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmail(email);
         user.setAccountStatus(accountStatus);
         return user;
+    }
+
+    public UserBuilder withId(Long id) {
+        this.id = id;
+        return this;
     }
 
     public UserBuilder withFirstName(String firstName) {

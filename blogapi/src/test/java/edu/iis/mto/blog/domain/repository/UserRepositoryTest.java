@@ -109,29 +109,9 @@ public class UserRepositoryTest {
 
         assertThat(users, hasSize(2));
 
-        assertThat(users.get(0)
-                        .getFirstName(),
-                equalTo(userJanWithDomainAccount.getFirstName()));
+        assertThat(users.get(0), equalTo(userJanWithDomainAccount));
 
-        assertThat(users.get(0)
-                        .getLastName(),
-                equalTo(userJanWithDomainAccount.getLastName()));
-
-        assertThat(users.get(0)
-                        .getEmail(),
-                equalTo(userJanWithDomainAccount.getEmail()));
-
-        assertThat(users.get(1)
-                        .getFirstName(),
-                equalTo(userJanuszWithGmailAccount.getFirstName()));
-
-        assertThat(users.get(1)
-                        .getLastName(),
-                equalTo(userJanuszWithGmailAccount.getLastName()));
-
-        assertThat(users.get(1)
-                        .getEmail(),
-                equalTo(userJanuszWithGmailAccount.getEmail()));
+        assertThat(users.get(1), equalTo(userJanuszWithGmailAccount));
 
     }
 
@@ -147,29 +127,9 @@ public class UserRepositoryTest {
 
         assertThat(users, hasSize(2));
 
-        assertThat(users.get(0)
-                        .getFirstName(),
-                equalTo(userPiotrKowalskiWithDomainAccount.getFirstName()));
+        assertThat(users.get(0), equalTo(userPiotrKowalskiWithDomainAccount));
 
-        assertThat(users.get(0)
-                        .getLastName(),
-                equalTo(userPiotrKowalskiWithDomainAccount.getLastName()));
-
-        assertThat(users.get(0)
-                        .getEmail(),
-                equalTo(userPiotrKowalskiWithDomainAccount.getEmail()));
-
-        assertThat(users.get(1)
-                        .getFirstName(),
-                equalTo(userMiloszKowalskiWithGmailAccount.getFirstName()));
-
-        assertThat(users.get(1)
-                        .getLastName(),
-                equalTo(userMiloszKowalskiWithGmailAccount.getLastName()));
-
-        assertThat(users.get(1)
-                        .getEmail(),
-                equalTo(userMiloszKowalskiWithGmailAccount.getEmail()));
+        assertThat(users.get(1), equalTo(userMiloszKowalskiWithGmailAccount));
 
     }
 
@@ -185,29 +145,9 @@ public class UserRepositoryTest {
 
         assertThat(users, hasSize(2));
 
-        assertThat(users.get(0)
-                        .getFirstName(),
-                equalTo(userJanuszWithGmailAccount.getFirstName()));
+        assertThat(users.get(0), equalTo(userJanuszWithGmailAccount));
 
-        assertThat(users.get(0)
-                        .getLastName(),
-                equalTo(userJanuszWithGmailAccount.getLastName()));
-
-        assertThat(users.get(0)
-                        .getEmail(),
-                equalTo(userJanuszWithGmailAccount.getEmail()));
-
-        assertThat(users.get(1)
-                        .getFirstName(),
-                equalTo(userMiloszKowalskiWithGmailAccount.getFirstName()));
-
-        assertThat(users.get(1)
-                        .getLastName(),
-                equalTo(userMiloszKowalskiWithGmailAccount.getLastName()));
-
-        assertThat(users.get(1)
-                        .getEmail(),
-                equalTo(userMiloszKowalskiWithGmailAccount.getEmail()));
+        assertThat(users.get(1), equalTo(userMiloszKowalskiWithGmailAccount));
 
     }
 
@@ -248,17 +188,7 @@ public class UserRepositoryTest {
         List<User> users = repository.findByFirstNameContainingOrLastNameContainingOrEmailContainingAllIgnoreCase("aN", invalidLastName,
                 invalidEmail);
 
-        assertThat(users.get(0)
-                        .getFirstName(),
-                equalTo(userJanWithDomainAccount.getFirstName()));
-
-        assertThat(users.get(0)
-                        .getLastName(),
-                equalTo(userJanWithDomainAccount.getLastName()));
-
-        assertThat(users.get(0)
-                        .getEmail(),
-                equalTo(userJanWithDomainAccount.getEmail()));
+        assertThat(users.get(0), equalTo(userJanWithDomainAccount));
 
     }
 
